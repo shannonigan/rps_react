@@ -1,9 +1,47 @@
-import React from "react"
+import React from "react";
 
 
-const Rock = (props) => (
-  <img onClick={() => props.userChoice(1)} id="rock" class="rock" src="https://www.campcanary.co.uk/uploads/rock-icon-grey.png"></img>
+const Rock = props => (
+  <div>
+    <img
+      onClick={() => props.choice("Rock")}
+      id="rock"
+      className="rock"
+      src="https://www.campcanary.co.uk/uploads/rock-icon-grey.png"
+    ></img>
 
-)
+    <div>
+      {/* if (props.computerChoice === "Rock") */}
 
-export default Rock;
+
+
+
+      {/* {computerChoice === "Rock" ? win: "Tie" :}
+    props.computerChoice
+  if (props.computerChoice == "rock") {
+
+       
+        ys.innerHTML = score
+        cs.innerHTML = cscore
+      }
+      else if (props.computerChoice == "scissors") {
+
+       
+        score++;
+        ys.innerHTML = score
+        cs.innerHTML = cscore
+      }
+      else if (props.computerChoice == "paper") {
+
+       
+        cscore++;
+        ys.innerHTML = score
+        cs.innerHTML = cscore
+      }
+      } */}
+    </div>
+  
+  </div>
+
+    );
+    export default Rock;

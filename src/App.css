@@ -2,11 +2,11 @@
   text-align: center;
   
 }
-.container{
+/* .container{
   display: flex;
   justify-content: center;
   
-}
+} */
 .rock{
   height: 250px;
   width: 250px;
@@ -28,6 +28,32 @@
   padding: 25px 25px 25px 25px;
 }
 
-.score{
+.sscore{
+  font-size: 25px;
   text-align: center;
+}
+
+.win{
+  font-size: 50px;
+  text-align: center;
+}
+
+.score{
+  font-size: 22px;
+  text-align: center;
+}
+
+.cscore{
+  font-size: 22px;
+  text-align: center;
+}
+
+.player{
+  font-size: 30px;
+  
+}
+
+.comp{
+  font-size: 30px;
+  
 }

@@ -7,64 +7,86 @@ import Scissors from "./Scissors";
 
 
 
-
-class App extends React.Component{
+class App extends React.Component {
   state = {
-    weapons: [ 
-      {id:1, name: "rock"}, 
-      {id:2, name: "paper"},
-      {id:3, name: "scissor"},
+    weapons: [
+      { id: 1, name: "Rock" },
+      { id: 2, name: "Paper" },
+      { id: 3, name: "Scissors" }
     ],
     twoPlayer: false,
-    userChoice: 0,
+    usersChoice: 0,
     compChoice: 0,
     userScore: 0,
     compScore: 0,
   };
 
- 
-  userChoice = (id) => {
-    this.setState({ userChoice: id })
-  }
 
-  compChoice = (id) => {
-   this.setState({ compChoice: [Math.floor(Math.random() * weapons.length)]})
-  }
- //^ not working..
-  
-  render(){
+  choice = (name) => {
+    this.setState({ usersChoice: name });
+    // console.log("You chose " + this.state.usersChoice)
+    this.computerChoice()
+  };
+
+
+  computerChoice = name => {
+    const { weapons } = this.state;
+    this.setState({ compChoice: weapons[Math.floor(Math.random() * weapons.length)].name });
+  };
+
+
+  // uScore = name => {
+  //   this.setState({ userScore: userScore++})
+  // }
+
+
+  // cScore = name => {
+  //   this.setState({ compScore: compScore++})
+  // }
+
+
+  render() {
     return (
-      <Container style={{ marginTop: "25px", }}>
-        <Header
-          as="h1"
-          color="red"
-          textAlign="center"
-          >
-            {this.props.title}
+      <Container style={{ marginTop: "25px" }}>
+        <Header size="huge" color="red" textAlign="center">
+          {this.props.title}
         </Header>
-
-
         {/* Toggle Button (comp/2nd player)  */}
+        <h2 class="sscore"> Score: </h2>
+        <div id="userScore" className="score">
+          Player Wins: {this.state.userScore}
+        </div>
+        <br/>
+        <div id="compScore" className="cscore">
+          Comp Wins: {this.state.compScore}
+        </div>
+        
+        <div style={{ textAlign: "center" }}>
+          <Rock choice={this.choice} />
+          <Paper choice={this.choice} />
+          <Scissors choice={this.choice} />
+        </div>
 
-
-        <h2 class="score"> Score: </h2>
-
-        <div style={{textAlign: "center"}}>
-
-          <Rock userChoice={this.userChoice} />
-
-          <Paper userChoice={this.userChoice} />
-          
-          <Scissors userChoice={this.userChoice} />
+        <div className="player">
+          Player Choice:  {this.state.usersChoice}
+        </div>
+        <br/>
+        <div className="comp">
+          Comp Choice: {this.state.compChoice}
+        </div>
+      
+        <div className="win">
+          Ready to play?
         </div>
       </Container>
-    )
+    );
   }
 }
 
 
 
 export default App;
+
 
 
 // Basic Objectives:
@@ -82,7 +104,7 @@ export default App;
 // Color a win differently than a loss so it is easy to tell if the user won.
 
 
-// toggleCards = (id) => {
+// togglePlayer = (id) => {
 //   this.setState({
 //     cards: this.state.cards.map(card => {
 //       if (card.id === id) {
